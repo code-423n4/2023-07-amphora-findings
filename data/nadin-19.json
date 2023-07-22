@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "In `CTokenOracle.sol`, `peekValue` is miscalculated",
+  "issueId": 19,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/19"
+}
