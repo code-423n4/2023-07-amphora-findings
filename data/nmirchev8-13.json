@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "nmirchev8",
+  "risk": "2",
+  "title": " Unhandled return value of transfer/transferFrom could lead to free minted USDA or user funds lost",
+  "issueId": 13,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/13"
+}
