@@ -1,33 +1,19 @@
-Here is a potential security issue in the _amountToSolvency() function. The bug is related to the order of operations within the calculation.
+## no access control on liquidate function 
+```solidity 
+function liquidate(
+  uint96 _id,
+  address _assetAddress,
+  uint256 _tokensToLiquidate
+) external {
+  (uint256 _actualTokensToLiquidate, uint256 _badFillPrice) = _liquidationMath(_id, _assetAddress, _tokensToLiquidate);
 
-Here is the affected function:
+  _doLiquidation(_id, _assetAddress, _tokensToLiquidate, _badFillPrice);
 
-```solidity
-function _amountToSolvency(uint96 _id) internal returns (uint256 _usdaToSolvency) {
-  _usdaToSolvency = _vaultLiability(_id) - _getVaultBorrowingPower(_getVault(_id));
+  emit LogLiquidation(_id, _assetAddress, _tokensToLiquidate);
 }
 ```
-The issue lies in the subtraction operation (_vaultLiability(_id) - _getVaultBorrowingPower(_getVault(_id))).
+The potential vulnerability here is that there is no access control on the liquidate function. Any external entity can call this function and initiate a liquidation process, provided that the vault is insolvent.
 
-The bug may show itself under the following circumstances:
+Although this is not necessarily a bug, and in fact could be a design choice to allow for open liquidation, it can potentially lead to "griefing" attacks where users spam the function with no intention of completing the liquidation process. This could cause unnecessary gas costs for the contract and interfere with the proper functioning of the system.
 
-    When peekCheckVault(_id) is false, i.e., the vault is not solvent.
-    When the result of _peekAmountToSolvency(_id) exceeds the maximum value that can be represented by the uint256 data type.
-
-Explanation:
-
-The function _amountToSolvency() is used to calculate the amount of USDA needed to reach even solvency for a specific vault. It subtracts the vault's borrowing power from its liability to determine how much additional USDA is required.
-
-However, the bug occurs because the peekCheckVault(_id) function is not called within the _amountToSolvency() function. As a result, there is no validation to check if the vault is solvent before performing the subtraction.
-
-Let's look at the flow of events:
-
-    _usdaToSolvency = _vaultLiability(_id) retrieves the vault's liability.
-    _getVaultBorrowingPower(_getVault(_id)) calculates the vault's borrowing power.
-    The function returns _usdaToSolvency without verifying if the vault is solvent or not.
-
-If the vault is not solvent, i.e., the peekCheckVault(_id) is false, then the vault's borrowing power may exceed its liability, leading to a negative value during subtraction. In Solidity, unsigned integers (uint) cannot represent negative values, and an underflow will occur.
-
-The underflow will result in the subtraction returning an unexpected large positive value instead of a negative value. This could potentially lead to incorrect calculations and unintended behavior in the contract, including the misallocation of funds.
-
-To fix this issue, it's necessary to add a check for vault solvency using peekCheckVault(_id) before performing the subtraction to prevent the underflow and ensure accurate calculations.
+A solution to this could be to implement a simple form of access control to limit who can initiate the liquidation process, such as requiring the caller to hold a certain number of a specific token, or to have previously interacted with the contract in a certain way.
