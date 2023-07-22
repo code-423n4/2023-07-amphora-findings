@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "nadin",
+  "risk": "2",
+  "title": "`UniswapV3TokenOracleRelay.sol#peekValue()` returns the oracle's current reported value lower than expected due to Oracle ticking rounding the wrong direction",
+  "issueId": 18,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/18"
+}
