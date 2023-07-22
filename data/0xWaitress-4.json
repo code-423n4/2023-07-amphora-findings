@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "mintVault in VaultController using clone is subject to re-org attack",
+  "issueId": 4,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/4"
+}
