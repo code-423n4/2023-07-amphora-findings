@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "nmirchev8",
+  "risk": "2",
+  "title": "Chainlink \"latestRoundData\" could return stale or incorrect result",
+  "issueId": 11,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/11"
+}
