@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "XDZIBECX",
+  "risk": "2",
+  "title": "problem in the constructor of the ThreeLines0_100 contract  lead to erratic behavior when the contract is used.",
+  "issueId": 48,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/48"
+}
