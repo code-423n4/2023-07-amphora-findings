@@ -51,3 +51,15 @@ cvxRewardFee if mis-configured to beyond 100% would break many calculation like 
 ```
 
 https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/governance/GovernorCharlie.sol#L159-L175
+
+### [N-3]  make forceSetCurve a 1-time operation if it is only meant for deployment
+```solidity
+  /// @notice Special function that does not calculate interest, used for deployment
+  function forceSetCurve(address _tokenAddress, address _curveAddress) external override onlyOwner {
+    address _oldCurve = curves[_tokenAddress];
++++    require(_oldCurve == address(0));
+    curves[_tokenAddress] = _curveAddress;
+
+    emit CurveForceSet(_oldCurve, _tokenAddress, _curveAddress);
+  }
+```
