@@ -63,3 +63,17 @@ https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/
     emit CurveForceSet(_oldCurve, _tokenAddress, _curveAddress);
   }
 ```
+
+
+### [N-4] Typo in setVaultController since it mis-name oldController as oldCurveAddress
+
+```solidity
+  function setVaultController(address _vaultMasterAddress) external override onlyOwner {
+---    address _oldCurveAddress = vaultControllerAddress;
++++    address _oldVaultControllerAddress = vaultControllerAddress;
+    vaultControllerAddress = _vaultMasterAddress;
+
+---    emit VaultControllerSet(_oldCurveAddress, _vaultMasterAddress);
++++    emit VaultControllerSet(_oldVaultControllerAddress, _vaultMasterAddress);
+  }
+```
