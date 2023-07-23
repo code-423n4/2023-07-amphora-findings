@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "kutugu",
+  "risk": "2",
+  "title": "VaultController _getVaultBorrowingPower is not isolated, and one bad asset will DOS the entire calculation",
+  "issueId": 26,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/26"
+}
