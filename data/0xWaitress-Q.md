@@ -28,4 +28,26 @@ cvxRewardFee if mis-configured to beyond 100% would break many calculation like 
   }
 ```
 
+### [N-2] _propose in GovernorCharlie could use a struct to represent 4 arrays which are expected to be the same size, to remove length checks
 
+```solidity
+  function _propose(
+    address[] memory _targets,
+    uint256[] memory _values,
+    string[] memory _signatures,
+    bytes[] memory _calldatas,
+    string memory _description,
+    bool _emergency
+  ) internal returns (uint256 _proposalId) {
+    // Reject proposals before initiating as Governor
+    if (quorumVotes == 0) revert GovernorCharlie_NotActive();
+    // Allow addresses above proposal threshold and whitelisted addresses to propose
+    if (amph.getPriorVotes(msg.sender, (block.number - 1)) < proposalThreshold && !isWhitelisted(msg.sender)) {
+      revert GovernorCharlie_VotesBelowThreshold();
+    }
+    if (
+      _targets.length != _values.length || _targets.length != _signatures.length || _targets.length != _calldatas.length
+    ) revert GovernorCharlie_ArityMismatch();
+```
+
+https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/governance/GovernorCharlie.sol#L159-L175
