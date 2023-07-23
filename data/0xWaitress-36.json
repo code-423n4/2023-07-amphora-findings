@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "Vault owner cannot choose optionally from claiming certain extra reward tokens from CVX positions leads to potential unexpected behavior",
+  "issueId": 36,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/36"
+}
