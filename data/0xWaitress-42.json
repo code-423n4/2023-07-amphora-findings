@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "a proposer with above-threshold vote proposing an emergency vote could be prevented in doing so if the protocol adds him/her as whitelist",
+  "issueId": 42,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/42"
+}
