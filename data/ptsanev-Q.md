@@ -1,0 +1,1 @@
+## [L-01] - slight reorg possibility in the VaultDeployer. As a result of a chain reorg, even if 1 block deep, a vault creation can be front-ran, since the address is non-deterministic and funds that are planned to be sent can be received by front-runner's vault. The likelihood of a substancial reorg on the mainnet is low, thus I put this as a LOW.
