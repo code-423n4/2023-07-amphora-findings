@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "mahyar",
+  "risk": "3",
+  "title": "VaultController -> `_truncate()` and `_getPriceWithDecimals` functions return wrong value",
+  "issueId": 58,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/58"
+}
