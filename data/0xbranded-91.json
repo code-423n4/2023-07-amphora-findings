@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xbranded",
+  "risk": "3",
+  "title": "Vault 'balances' mapping doesn't accurately reflect rebasing token balances, resulting in unrecoverable funds and malfunctioning liquidations",
+  "issueId": 91,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/91"
+}
