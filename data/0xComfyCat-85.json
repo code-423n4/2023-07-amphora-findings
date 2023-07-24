@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xComfyCat",
+  "risk": "3",
+  "title": "Wrong conversion rate calculation during USDA wrapping causes attackers to be able to free mint WUSDA or receive WUSDA back more than they should.",
+  "issueId": 85,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/85"
+}
