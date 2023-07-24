@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "_wUSDAToUSDA is problematic since user could literally mint nothing when USDA * _totalUsdaSupply is below the MAX_wUSDA_SUPPLY",
+  "issueId": 64,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/64"
+}
