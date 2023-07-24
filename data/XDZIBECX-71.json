@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "XDZIBECX",
+  "risk": "2",
+  "title": "Lack of Stale Price Check in ChainlinkTokenOracleRelay",
+  "issueId": 71,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/71"
+}
