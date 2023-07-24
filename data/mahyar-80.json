@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "mahyar",
+  "risk": "3",
+  "title": "VaultController -> all of the vault's balance can get liquadated with small amount of USDA",
+  "issueId": 80,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/80"
+}
