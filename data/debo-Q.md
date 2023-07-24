@@ -32,7 +32,12 @@ CWE-330: Use of Insufficiently Random Values
 
 ## Description
 ```txt
-Ability to generate random numbers is very helpful in all kinds of applications. One obvious example is gambling DApps, where pseudo-random number generator is used to pick the winner. However, creating a strong enough source of randomness in Ethereum is very challenging. For example, use of block.timestamp is insecure, as a miner can choose to provide any timestamp within a few seconds and still get his block accepted by others. Use of blockhash, block.difficulty and other fields is also insecure, as they're controlled by the miner. If the stakes are high, the miner can mine lots of blocks in a short time by renting hardware, pick the block that has required block hash for him to win, and drop all others.
+Ability to generate random numbers is very helpful in all kinds of applications. 
+One obvious example is gambling DApps, where pseudo-random number generator is used to pick the winner. 
+However, creating a strong enough source of randomness in Ethereum is very challenging. 
+For example, use of block.timestamp is insecure, as a miner can choose to provide any timestamp within a few seconds and still get his block accepted by others. 
+Use of blockhash, block.difficulty and other fields is also insecure, as they're controlled by the miner. 
+If the stakes are high, the miner can mine lots of blocks in a short time by renting hardware, pick the block that has required block hash for him to win, and drop all others.
 ```
 
 ## POC
@@ -71,10 +76,15 @@ else if (block.number <= _proposal.startBlock) return ProposalState.Pending;
     else if (block.number <= _proposal.endBlock) return ProposalState.Active;
 
 ```
-
+## Tools Used
+```
+Mythx
+Visual Studio Code
+```
 ## Remediation
 ```txt
 Using commitment scheme, e.g. RANDAO.
-Using external sources of randomness via oracles, e.g. Oraclize. Note that this approach requires trusting in oracle, thus it may be reasonable to use multiple oracles.
+Using external sources of randomness via oracles, e.g. Oraclize. 
+Note that this approach requires trusting in oracle, thus it may be reasonable to use multiple oracles.
 Using Bitcoin block hashes, as they are more expensive to mine.
 ```
