@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ravikiranweb3",
+  "risk": "2",
+  "title": "return value for transferFrom is not checked.",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/77"
+}
