@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "T1MOH",
+  "risk": "2",
+  "title": "UniswapV3TokenOracleRelay.sol values USDC as $1 which can be dangerous",
+  "issueId": 84,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/84"
+}
