@@ -1,4 +1,4 @@
-The _burn() function does not include any checks for address(0).
+The `_burn()` function does not include any checks for address(0) in the `USDA.sol` contract
 
 ```solidity
 function _burn(address _target, uint256 _amount) internal {
@@ -13,3 +13,4 @@ function _burn(address _target, uint256 _amount) internal {
     emit Burn(_target, _amount);
   }
 ```
+contract can be found at `core/solidity/contracts/core/USDA.sol`
