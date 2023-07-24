@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Hama",
+  "risk": "3",
+  "title": "Underflow Vulnerability in _burn Function can lead to lead to unintended inflation of the target's balance",
+  "issueId": 60,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/60"
+}
