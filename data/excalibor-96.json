@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "excalibor",
+  "risk": "3",
+  "title": "initialProposalId is not being set anywhere causing GovernonCharlie state to always revert after a certain point",
+  "issueId": 96,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/96"
+}
