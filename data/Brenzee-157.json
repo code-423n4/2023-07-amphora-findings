@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Brenzee",
+  "risk": "2",
+  "title": "`Vault.withdrawERC20` doesn't accrue interest in `VaultController` which allows user to withdraw more and be liquidatable",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/157"
+}
