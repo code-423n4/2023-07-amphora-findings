@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Mike_Bello90",
+  "risk": "2",
+  "title": "VaultDeployer - deployVault - Deployer Vault Function Unprotected, Anyone can Create Vaults and Inject any Address as the Vault Controller.",
+  "issueId": 173,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/173"
+}
