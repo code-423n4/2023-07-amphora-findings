@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "btk",
+  "risk": "3",
+  "title": "`VaultController` fees can't be set to their max value (.i.e 1e18)",
+  "issueId": 130,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/130"
+}
