@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Hama",
+  "risk": "3",
+  "title": " Front-Running Vulnerability in  decreaseAllowance and increaseAllowance Functions",
+  "issueId": 113,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/113"
+}
