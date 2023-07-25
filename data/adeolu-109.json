@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "adeolu",
+  "risk": "2",
+  "title": "_decimals in _getPriceWithDecimals() will cause execution error if more than 18",
+  "issueId": 109,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/109"
+}
