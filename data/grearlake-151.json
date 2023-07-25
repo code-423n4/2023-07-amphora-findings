@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "Untrusted ERC-20 decimals() return ralues could be mutated, lead to DoS and other problem",
+  "issueId": 151,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/151"
+}
