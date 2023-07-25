@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Walter",
+  "risk": "2",
+  "title": "_payInterest will unexpectedly revert if ThreeLines0_100 variables are wrongly setted",
+  "issueId": 150,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/150"
+}
