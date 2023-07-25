@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "VaultController owner can steal user fund while liquidating/paying fee by front-running user transaction in multiple action",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/164"
+}
