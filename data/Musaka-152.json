@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Musaka",
+  "risk": "2",
+  "title": "If chainlink report a price of 0 or stops it's aggregaro the users will be unable to withdraw or be liquidated",
+  "issueId": 152,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/152"
+}
