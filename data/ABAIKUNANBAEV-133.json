@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "2",
+  "title": "MAX_INIT_BORROWING_FEE is not forced in the constructor",
+  "issueId": 133,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/133"
+}
