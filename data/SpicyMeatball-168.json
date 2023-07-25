@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "SpicyMeatball",
+  "risk": "2",
+  "title": "User can mint WUSDA tokens for free due to the rounding down",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/168"
+}
