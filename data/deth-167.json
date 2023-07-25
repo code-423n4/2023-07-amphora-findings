@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "deth",
+  "risk": "2",
+  "title": "VaultController.sol#_payInterest() - _e18FactorIncrease calculation can lead to precision loss.",
+  "issueId": 167,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/167"
+}
