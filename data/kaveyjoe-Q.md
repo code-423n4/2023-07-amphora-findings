@@ -1,4 +1,33 @@
-1 . TArget : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/USDA.sol
+1 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/AMPHClaimer.sol
+
+Bug Location:
+The problematic line is within the _calculate function, specifically here:
+
+_amphForThisTurn = ((_rate * _tempAmountReceived) / 1e12) / 1e6;
+
+
+Bug Impact:
+Due to this rounding error, the _amphForThisTurn value is not calculated accurately. This can lead to various problems, including incorrect distribution of AMPH tokens and potential loss of funds. The issue may result in excessive or insufficient amounts of AMPH tokens being minted when exchanging CRV tokens.
+
+Proposed Fix:
+To address the bug, the calculation in the _calculate function needs to be revised. One potential solution is to avoid using a division operation and instead perform the calculations using only multiplication:
+
+_amphForThisTurn = (_rate * _tempAmountReceived) / 1e18;
+
+
+By changing the division factor from 1e12 to 1e18, we can eliminate the rounding errors and accurately calculate the _amphForThisTurn value.
+
+
+
+
+
+
+
+
+
+
+
+2 . TArget : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/USDA.sol
 
 Inheritance Order: The contract extends multiple other contracts and interfaces (Pausable, UFragments, IUSDA, ExponentialNoError, Roles). The inheritance order should be carefully considered to avoid potential conflicts between the inherited functions and modifiers.
 
@@ -18,7 +47,7 @@ Use of unchecked: The unchecked keyword is used in the loop inside the paysInter
 
 
 
-2 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/utils/UFragments.sol
+3 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/utils/UFragments.sol
 
 - In the transfer, transferAll, transferFrom, and transferAllFrom functions, the _gonValue variable is calculated as _value * _gonsPerFragment. This multiplication could result in an arithmetic overflow if _gonsPerFragment is large. To prevent this, we need to ensure that _value * _gonsPerFragment does not exceed MAX_UINT256.
 
@@ -48,5 +77,35 @@ The setMonetaryPolicy function is marked as external and is only accessible to t
 
 Suggested Fix:
 Add a modifier or require statement to ensure that only the contract owner can call the setMonetaryPolicy function.
+
+
+4 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/WUSDA.sol
+
+-   _usdaToWUSDA: This function converts an amount of USDA tokens to an equivalent amount of wUSDA tokens. The calculation uses the formula: _wusdaAmount = (_usdaAmount * MAX_wUSDA_SUPPLY) / _totalUsdaSupply;. If _usdaAmount and _totalUsdaSupply are both large numbers, the multiplication may exceed the maximum value of a uint256, leading to an incorrect result.
+
+-   _wUSDAToUSDA: This function converts an amount of wUSDA tokens back to an equivalent amount of USDA tokens. The calculation uses the formula: _usdaAmount = (_wusdaAmount * _totalUsdaSupply) / MAX_wUSDA_SUPPLY;. Similarly, if _wusdaAmount and _totalUsdaSupply are large, the multiplication may cause overflow and result in an incorrect value.
+
+Suggested Fix:
+
+
+Here's a revised version of the functions using fixed-point arithmetic:
+
+function _usdaToWUSDA(uint256 _usdaAmount, uint256 _totalUsdaSupply) private pure returns (uint256 _wusdaAmount) {
+    // Convert to fixed-point arithmetic with 18 decimal places
+    uint256 fixedPointAmount = _usdaAmount * (10**18);
+    _wusdaAmount = (fixedPointAmount * MAX_wUSDA_SUPPLY) / _totalUsdaSupply;
+}
+
+function _wUSDAToUSDA(uint256 _wusdaAmount, uint256 _totalUsdaSupply) private pure returns (uint256 _usdaAmount) {
+    // Convert to fixed-point arithmetic with 18 decimal places
+    uint256 fixedPointAmount = _wusdaAmount * (10**18);
+    _usdaAmount = (fixedPointAmount * _totalUsdaSupply) / MAX_wUSDA_SUPPLY;
+}
+
+
+This  uses fixed-point arithmetic by multiplying the input amounts with 10^18 before performing the division, effectively keeping the precision during the calculations.
+
+
+
 
 
