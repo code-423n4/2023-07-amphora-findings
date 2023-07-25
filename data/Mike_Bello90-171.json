@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Mike_Bello90",
+  "risk": "2",
+  "title": "Use SafeERC20 from OpenZeppelin for External tokens",
+  "issueId": 171,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/171"
+}
