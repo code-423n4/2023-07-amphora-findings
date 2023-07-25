@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Brenzee",
+  "risk": "2",
+  "title": "If USDA depegs from 1 USD, users can abuse it to profit from `VaultController` or `USDA` contracts",
+  "issueId": 148,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/148"
+}
