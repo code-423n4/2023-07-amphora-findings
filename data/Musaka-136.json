@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Musaka",
+  "risk": "3",
+  "title": "`_getPriceWithDecimals` does not function correctly",
+  "issueId": 136,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/136"
+}
