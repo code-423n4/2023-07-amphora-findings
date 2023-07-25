@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "T1MOH",
+  "risk": "2",
+  "title": "Whitelisted proposer that meets `proposalThreshold` can't create emergency proposal",
+  "issueId": 144,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/144"
+}
