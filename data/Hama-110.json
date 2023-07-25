@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Hama",
+  "risk": "3",
+  "title": "Precision and Potential Fund Loss Vulnerability in _totalToFraction Function",
+  "issueId": 110,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/110"
+}
