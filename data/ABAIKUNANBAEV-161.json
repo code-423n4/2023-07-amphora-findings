@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ABAIKUNANBAEV",
+  "risk": "2",
+  "title": "Current implementation of VaultController allows to set the protocolFee as very huge amount",
+  "issueId": 161,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/161"
+}
