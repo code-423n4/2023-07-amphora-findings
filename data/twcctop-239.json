@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "twcctop",
+  "risk": "3",
+  "title": "Missing Pool ID Check in depositERC20 Function Allows Unintended Deposits",
+  "issueId": 239,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/239"
+}
