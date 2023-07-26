@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "HALITUS",
+  "risk": "3",
+  "title": "Read-only reentrancy - during liquidation, an attacker can liquidate the vault and borrow USDA without depositing any collateral",
+  "issueId": 411,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/411"
+}
