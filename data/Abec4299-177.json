@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Abec4299",
+  "risk": "2",
+  "title": "Functions withdraw/withdrawTo of USDA could underflow reserveAmount",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/177"
+}
