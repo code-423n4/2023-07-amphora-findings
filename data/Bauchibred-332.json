@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "The hardcoded _LOOKBACK_ being used as `_seconds` would cause wrong price to be returned from oracles built on UniswapV3OracleRelay.sol",
+  "issueId": 332,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/332"
+}
