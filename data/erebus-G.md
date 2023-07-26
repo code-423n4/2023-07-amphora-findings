@@ -43,3 +43,6 @@ Consider making [MAX_SUPPLY](https://github.com/code-423n4/2023-07-amphora/blob/
 
 # Fourth
 Consider changing all the `strings` to `bytes` because they are packed more densely in memory, resulting in less gas usage and a smaller contract size. The reason behind is that strings are dynamically-sized but bytes have a fixed size
+
+# Fifth
+As what I have said in the first Gas submission, change [_nonces[_owner] = _ownerNonce + 1;](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/UFragments.sol#L336) to `_nonces[_owner] += 1;`
