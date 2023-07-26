@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "erebus",
+  "risk": "3",
+  "title": "Reentrancy in withdrawERC20",
+  "issueId": 257,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/257"
+}
