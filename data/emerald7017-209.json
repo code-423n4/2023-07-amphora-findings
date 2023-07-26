@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "Transaction Ordering Dependence (Front-Running) Vulnerability in USDA Smart Contract.",
+  "issueId": 209,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/209"
+}
