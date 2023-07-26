@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "Price access could get DOS'd since queries to chainlink are not done in a try/catch incase of reverts",
+  "issueId": 178,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/178"
+}
