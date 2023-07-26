@@ -14,8 +14,6 @@ there were 5 found instances of this optimizations:
 
 [[868](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/core/VaultController.sol#L868),[896](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/core/VaultController.sol#L896),[259](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/governance/GovernorCharlie.sol#L259),[313](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/governance/GovernorCharlie.sol#L313),[382](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/governance/GovernorCharlie.sol#L382C1-L382C64)]
 
-it in the last three occurrences, we can use pre-increment instead of post-increment to save even more gas
-
 ### struct optimization
 
 in [Proposal struct](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/GovernanceStructs.sol#L4C8-L4C16) we can declare the following variables right after each others
@@ -254,4 +252,54 @@ GovernorCharlie.sol:
     139: all arguments in `proposeEmergency` function
     ```
     
-    ### use of bytes32 instead of string
+    ### pre-increment instead of post-increment
+    
+    instances:
+    
+    ```jsx
+    USDA.sol:
+    51: _i++;
+    
+    VaultController.sol:
+    258: _tokensRegistered++;
+    
+    GovernorCharlie.sol:
+    186: proposalCount++;
+    259: for (uint256 _i = 0; _i < _proposal.targets.length; _i++)
+    313: for (uint256 _i = 0; _i < _proposal.targets.length; _i++)
+    382: for (uint256 _i = 0; _i < _proposal.targets.length; _i++)
+    ```
+    
+    ### using revert with custom errors instead of require
+    
+    ```jsx
+    UFragments.sol:
+    52: require(msg.sender == monetaryPolicy);
+    324: require(block.timestamp <= _deadline);
+    333: require(_owner == ecrecover(_digest, _v, _r, _s));
+    
+    AnchoredViewRelay.sol:
+    77: require(_mainValue > 0, 'invalid oracle value');
+    80: require(_anchorPrice > 0, 'invalid anchor value');
+    95: require(_mainValue < _upperBounds, 'anchor too low');
+    96: require(_mainValue > _lowerBounds, 'anchor too high');
+    ```
+    
+    ## state variables that should be declared as constant
+    
+    declaring a state variable as constant instructs the compiler to replaces its value with each occurrence in the code, instead of putting in a slot in the EVM saving, three instances were found in `UFragments.sol`
+    
+    - `MAX_SUPPLY`
+    - `_totalSupply`
+    - `_gonsPerFragment`
+    
+    since these variables are set to constant values inside the constructor, marking them as `constant` and omitting setting the values in the constructor would both decrease deployment and runtime cost, as doing so will save 3 EVM slots, and makes getter functions like `totalSupply` returns a constant value instead of reading state variables every time which would alone save about 2000 gas in every call
+    
+    ### avoid checking if uint variables in less than 0
+    
+    `<=` checks cost less than `==` duo the the former having to execute one more instruction in the EVM, one instances was found where this applies
+    
+    ```jsx
+    AmphoraProtocolToken.sol:
+    14:if (_initialSupply <= 0) revert AmphoraProtocolToken_InvalidSupply();
+    ```
