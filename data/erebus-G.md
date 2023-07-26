@@ -37,3 +37,6 @@ Results:
 - testC -> 22391
 
 Consider using the `X += 1` version everywhere. The RE can be `[^ \+]*\+\+` for the occurrences of `X++` and `\+\+[^ \)]*` for the occurrences of `++X`. The same applies to other arithmetic operations.
+
+# Third 
+Consider making [MAX_SUPPLY](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/UFragments.sol#L70C18-L70C28) constant, which saves storage read/writes (ssread/sstore costs A LOT of gas) from being done within the contract's logic (and saves more opcodes, which reduces its size)
