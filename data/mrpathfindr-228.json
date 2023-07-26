@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "mrpathfindr",
+  "risk": "2",
+  "title": "Lack of Arithmetic Overflow in _modifyTotalDeposited leading to inaccurate results. ",
+  "issueId": 228,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/228"
+}
