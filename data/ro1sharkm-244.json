@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ro1sharkm",
+  "risk": "2",
+  "title": "`InitialBorrowingFee` variable is not checked against `MAX_INIT_BORROWING_FEE` constant.",
+  "issueId": 244,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/244"
+}
