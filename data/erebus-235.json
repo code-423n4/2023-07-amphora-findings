@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "erebus",
+  "risk": "2",
+  "title": "_migrateCollateralsFrom does not take into account repeated tokens inside the array _tokenAddresses",
+  "issueId": 235,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/235"
+}
