@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "BugBusters",
+  "risk": "2",
+  "title": " Gas Limit Vulnerability in vaultSummaries Function Due to Large Number of enabledTokens",
+  "issueId": 403,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/403"
+}
