@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "josephdara",
+  "risk": "3",
+  "title": "Defeated whitelist proposals return succeeded if Defeated votes are less than quorum, even if they are greater than ",
+  "issueId": 212,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/212"
+}
