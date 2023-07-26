@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "BugBusters",
+  "risk": "2",
+  "title": "Potential Failure to Handle Vault Creation Errors in mintVault Function",
+  "issueId": 391,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/391"
+}
