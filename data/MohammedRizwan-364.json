@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "MohammedRizwan",
+  "risk": "3",
+  "title": "OpenZeppelin Ownable.sol now requires owner address must be initialized in constructor",
+  "issueId": 364,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/364"
+}
