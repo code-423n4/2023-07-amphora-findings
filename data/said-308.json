@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "said",
+  "risk": "3",
+  "title": "when `withdrawAndUnwrap` inside Vault, it cause extra rewards to be stuck",
+  "issueId": 308,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/308"
+}
