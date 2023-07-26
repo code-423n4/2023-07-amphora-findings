@@ -140,6 +140,7 @@ function _mint(address _target, uint256 _amount) internal validRecipient(_target
 
 # [L-03] `AMPHClaimer` CRV and CVX reward fee is not validated when being set
 
+## Impact
 Reward fee parameters set in constructor and setter functions `changeCvxRewardFee` and `changeCrvRewardFee` are not validated. If it is set to value greater than `_BASE` constant, contract would fail to function due to trying to take more fees than available balance.
 ```
   function _totalToFraction(uint256 _total, uint256 _fraction) internal pure returns (uint256 _amount) {
@@ -147,6 +148,7 @@ Reward fee parameters set in constructor and setter functions `changeCvxRewardFe
     _amount = (_total * _fraction) / _BASE; // @audit if `_fraction > _BASE` it would cause transfer to fail
   }
 ```
+
 ## Recommended mitigation steps
 Validate that fee input always less than `_BASE` constant in constructor and setters
 ```
@@ -179,4 +181,62 @@ Validate that fee input always less than `_BASE` constant in constructor and set
   }
 ```
 
-# [L-04] 
+# [L-04] `withdrawERC20` can be called with zero amount
+
+## Impact
+Even no damage could be done, it doesn't follow project's semantic e.g. `depositERC20` checks for zero amount input.
+
+## Proof of Concept
+Extending `CommonE2EBase` contract. The test showed that users can call `withdrawERC20` with zero as input.
+https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/Vault.sol#L117
+```
+  function testVaultWithdrawZeroAmount() public {
+    // Bob mints vault
+    uint96 bobsVaultId = _mintVault(bob);
+    bobVault = IVault(vaultController.vaultIdVaultAddress(bobsVaultId));
+
+    deal(address(weth), bob, 100 ether);
+    vm.startPrank(bob);
+    weth.approve(address(bobVault), 100 ether);
+    bobVault.depositERC20(address(weth), 100 ether);
+
+    // Able to withdraw with zero amount
+    bobVault.withdrawERC20(address(weth), 0);
+  }
+```
+## Recommended mitigation steps
+Add the check
+```
+  function withdrawERC20(address _tokenAddress, uint256 _amount) external override onlyMinter {
+    if (_amount == 0) revert Vault_AmountZero();
+    ...
+  }
+```
+
+# [L-05] View functions doesn't take borrower's pending interest into account
+
+## Impact
+View functions such as `vaultLiability`, `amountToSolvency`, `peekCheckVault`, etc. doesn't take borrower's pending interest into account. It would give protocol integrators extra effort to integrate with the protocol and possibility to do it wrong.
+
+## Recommended mitigation steps
+Create separate view functions that include pending interest in calculation.
+```
+  function vaultLiabilityWithPendingInterest(uint96 _id) external view override returns (uint192 _liability) {
+    address _vaultAddress = vaultIdVaultAddress[_id];
+    if (_vaultAddress == address(0)) revert VaultController_VaultDoesNotExist();
+    IVault _vault = IVault(_vaultAddress);
+
+    uint64 _timeDifference = uint64(block.timestamp) - interest.lastTime;
+    uint256 _ui18 = uint256(usda.reserveRatio());
+    int256 _reserveRatio = int256(_ui18);
+    int256 _intCurveVal = curveMaster.getValueAt(address(0x00), _reserveRatio);
+    uint192 _curveVal = _safeu192(uint256(_intCurveVal));
+    uint192 _e18FactorIncrease = _safeu192(
+      _truncate(
+        _truncate((uint256(_timeDifference) * uint256(1e18) * uint256(_curveVal)) / (365 days + 6 hours))
+          * uint256(interest.factor)
+      )
+    );
+    _liability = _safeu192(_truncate(_vault.baseLiability() * (interest.factor + _e18FactorIncrease)));
+  }
+```
