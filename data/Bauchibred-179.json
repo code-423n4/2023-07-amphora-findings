@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Bauchibred",
+  "risk": "2",
+  "title": "The `simulateLiquidateVault()` does not accurately fulfil it purpose",
+  "issueId": 179,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/179"
+}
