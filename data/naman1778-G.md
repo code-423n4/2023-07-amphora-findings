@@ -190,8 +190,8 @@ https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/
 
 On Remix, given only *uint256* types, the following are logical equivalents, but don’t cost the same amount of gas:
 
-*(a != b || c != d || e != f)* costs 571
-*((a ^ b) | (c ^ d) | (e ^ f))* != 0 costs 498 (saving 73 gas)
+- *(a != b || c != d || e != f)* costs 571
+- *((a ^ b) | (c ^ d) | (e ^ f))* != 0 costs 498 (saving 73 gas)
 
 #### Logic POC
 Given 4 variables *a*, *b*, *c* and *d* represented as such:
