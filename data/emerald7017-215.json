@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Unauthorized Zero Initial Borrowing Fee Setting in `changeInitialBorrowingFee` Function.",
+  "issueId": 215,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/215"
+}
