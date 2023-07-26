@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Topmark",
+  "risk": "2",
+  "title": "No Implementation of claimerContract and BOOSTER function from IVaultController.sol interface",
+  "issueId": 327,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/327"
+}
