@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Haipls",
+  "risk": "2",
+  "title": "The missing salt/proposalId in the hash construction for queuedTransactions leads to the possible collision of records in the queue",
+  "issueId": 405,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/405"
+}
