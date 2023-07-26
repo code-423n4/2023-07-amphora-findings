@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "No12Samurai",
+  "risk": "2",
+  "title": "Interest Can Be Significantly Lower if `calculateInterest()` Is Not Called Frequently Enough",
+  "issueId": 325,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/325"
+}
