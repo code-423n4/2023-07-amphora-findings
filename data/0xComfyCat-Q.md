@@ -237,6 +237,6 @@ Create separate view functions that include pending interest in calculation.
           * uint256(interest.factor)
       )
     );
-    _liability = _safeu192(_truncate(_vault.baseLiability() * (interest.factor + _e18FactorIncrease)));
+    _liability = _safeu192(_truncate(_vault.baseLiability() * (_e18FactorIncrease)));
   }
 ```
