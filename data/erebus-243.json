@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "erebus",
+  "risk": "2",
+  "title": "The owner can arbitrage the vault through calling repeteadly the changeProtocolFee function",
+  "issueId": 243,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/243"
+}
