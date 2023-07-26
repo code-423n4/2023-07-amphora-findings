@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Topmark",
+  "risk": "2",
+  "title": "Missing Validation Which Would Allow Excessive Liquidation Fee and Borrowing Fee",
+  "issueId": 187,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/187"
+}
