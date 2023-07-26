@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Lack of the check for the case of the `_cvxTotalRewards == 0` in the condition",
+  "issueId": 176,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/176"
+}
