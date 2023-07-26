@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "Incorrect validation in `executeTransaction()` could lead to theft of ETH",
+  "issueId": 423,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/423"
+}
