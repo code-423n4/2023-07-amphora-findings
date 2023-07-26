@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Qeew",
+  "risk": "2",
+  "title": "Lack of Zero-Check for _cvxTotalRewards in _claimable Function Can Lead to Logical Errors",
+  "issueId": 430,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/430"
+}
