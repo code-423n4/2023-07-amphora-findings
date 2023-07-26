@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "mojito_auditor",
+  "risk": "2",
+  "title": "GovernorCharlie can set a new gov token while there are active proposals",
+  "issueId": 293,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/293"
+}
