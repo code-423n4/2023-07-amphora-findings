@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Bauchibred",
+  "risk": "3",
+  "title": "`withdrawAll()` and `withdrawAllTo()` unfairly truncates user's sUSD tokens",
+  "issueId": 262,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/262"
+}
