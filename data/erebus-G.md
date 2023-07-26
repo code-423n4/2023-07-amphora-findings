@@ -39,4 +39,7 @@ Results:
 Consider using the `X += 1` version everywhere. The RE can be `[^ \+]*\+\+` for the occurrences of `X++` and `\+\+[^ \)]*` for the occurrences of `++X`. The same applies to other arithmetic operations.
 
 # Third 
-Consider making [MAX_SUPPLY](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/UFragments.sol#L70C18-L70C28) constant, which saves storage read/writes (ssread/sstore costs A LOT of gas) from being done within the contract's logic (and saves more opcodes, which reduces its size)
+Consider making [MAX_SUPPLY](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/UFragments.sol#L70C18-L70C28) constant, which saves storage read/writes (ssread/sstore costs A LOT of gas) from being done within the contract's logic (and saves more opcodes, which reduces its size). The same goes to many others like [name](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/UFragments.sol#L76) and [symbol](https://github.com/code-423n4/2023-07-amphora/blob/daae020331404647c661ab534d20093c875483e1/core/solidity/contracts/utils/UFragments.sol#L77)
+
+# Fourth
+Consider changing all the `strings` to `bytes` because they are packed more densely in memory, resulting in less gas usage and a smaller contract size. The reason behind is that strings are dynamically-sized but bytes have a fixed size
