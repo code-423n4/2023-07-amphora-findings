@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "If the input value is smaller than `(2^256 - 1) / interest.factor`, it could lead to an unsigned integer underflow during the multiplication.",
+  "issueId": 217,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/217"
+}
