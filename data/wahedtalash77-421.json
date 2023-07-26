@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "wahedtalash77",
+  "risk": "2",
+  "title": "## [M‑02] _safeMint() should be used rather than _mint() wherever possible",
+  "issueId": 421,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/421"
+}
