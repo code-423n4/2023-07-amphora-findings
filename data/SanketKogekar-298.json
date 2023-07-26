@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "Incorrect price will be returned by UniswapV3TokenOracle in certain condition which would result in wrong calculations.",
+  "issueId": 298,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/298"
+}
