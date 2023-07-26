@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "twcctop",
+  "risk": "2",
+  "title": "Unsafe truncation in the `getLiquidationFee` function may result in receiving less liquidation fee than expected.",
+  "issueId": 232,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/232"
+}
