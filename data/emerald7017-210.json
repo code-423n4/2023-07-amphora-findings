@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "`reserveRatio()` function lacks a check to ensure that `_totalSupply` is greater than zero before performing the division operation. ",
+  "issueId": 210,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/210"
+}
