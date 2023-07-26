@@ -1464,7 +1464,7 @@ contract UniswapV3OracleRelay is OracleRelay {
 
 - Remove unnecessary events since the code for those events was not provided.
 
--Use  staticcall for the getValueAt function to avoid unnecessary state changes and reduce gas costs for external calls. Note that staticcall is used since getValueAt is marked as view.
+- Use  staticcall for the getValueAt function to avoid unnecessary state changes and reduce gas costs for external calls. Note that staticcall is used since getValueAt is marked as view.
 
 - Move the initialization of vaultControllerAddress to the constructor.
 Added proper error messages to the require statements for better debugging.
