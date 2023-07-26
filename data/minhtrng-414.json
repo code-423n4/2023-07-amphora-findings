@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "minhtrng",
+  "risk": "2",
+  "title": "Vault.claimRewards can break if Convex changes the operator",
+  "issueId": 414,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/414"
+}
