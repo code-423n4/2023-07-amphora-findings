@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "Token minting does not have a upper cap limit since MAX_wUSDA_SUPPLY constant is ignored. ",
+  "issueId": 300,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/300"
+}
