@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "The `VaultController` has the ability to burn the tokens even when the functions are paused by owners.",
+  "issueId": 316,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/316"
+}
