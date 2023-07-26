@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "jokr",
+  "risk": "3",
+  "title": "Some curve pools have implementations such that Amphora's liquidations always revert.",
+  "issueId": 386,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/386"
+}
