@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "SanketKogekar",
+  "risk": "2",
+  "title": "The `_totalSupply` of USDA exceeding `MAX_SUPPLY` would result in lowering the value of USDA token. This is also not the expected functionality.",
+  "issueId": 309,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/309"
+}
