@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "If `_amphForThisTurn` is a very large number close to the maximum value that a `uint256` can hold, an overflow will occur during the calculation.",
+  "issueId": 204,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/204"
+}
