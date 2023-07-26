@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "An attacker could potentially perform a series of malicious actions before the function's intended execution is complete.",
+  "issueId": 211,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/211"
+}
