@@ -1,8 +1,0 @@
-{
-  "contest": 266,
-  "handle": "0x3b",
-  "risk": "2",
-  "title": "Users can borrow up to the max LTV ratio, allowing liquidators to liquidate them on the next block.",
-  "issueId": 281,
-  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/281"
-}
