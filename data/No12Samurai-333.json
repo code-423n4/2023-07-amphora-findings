@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "No12Samurai",
+  "risk": "2",
+  "title": "`VaultController.changeProtocolFee()` Does Not Update Interest Before Changing Fee",
+  "issueId": 333,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/333"
+}
