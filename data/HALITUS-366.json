@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "HALITUS",
+  "risk": "2",
+  "title": "`claimRewards()` may run out of gas and revert due to long list of extra rewards",
+  "issueId": 366,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/366"
+}
