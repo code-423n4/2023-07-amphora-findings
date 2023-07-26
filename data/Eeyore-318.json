@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Eeyore",
+  "risk": "2",
+  "title": "Absence of Oracle verification in `VaultController#registerErc20` and `VaultController#updateRegisteredErc20` functions",
+  "issueId": 318,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/318"
+}
