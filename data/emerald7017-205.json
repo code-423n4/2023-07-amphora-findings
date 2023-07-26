@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "2",
+  "title": "Underflow might lead to an unintended distribution of more AMPH tokens than intended, resulting in a loss of funds for the contract owner.",
+  "issueId": 205,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/205"
+}
