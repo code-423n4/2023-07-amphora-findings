@@ -1,15 +1,15 @@
 1 . TArget : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/governance/GovernorCharlie.sol
 
 
-Remove redundant _endBlock calculation: Instead of calculating _endBlock twice (once with votingPeriod and once with emergencyVotingPeriod), I now directly calculate _endBlock based on whether the contract is in emergency mode or not.
+- Remove redundant _endBlock calculation: Instead of calculating _endBlock twice (once with votingPeriod and once with emergencyVotingPeriod), I now directly calculate _endBlock based on whether the contract is in emergency mode or not.
 
-Remove unnecessary variable assignments: Removed the _description variable and directly set the _proposal.description value during proposal creation.
+- Remove unnecessary variable assignments: Removed the _description variable and directly set the _proposal.description value during proposal creation.
 
-Remove unnecessary loop: The execute function was iterating over the proposal's targets and executing each transaction separately. Since the transactions are executed within the _executeTransaction function, there's no need for this loop. Now, the function directly calls _executeTransaction for each target in the proposal.
+- Remove unnecessary loop: The execute function was iterating over the proposal's targets and executing each transaction separately. Since the transactions are executed within the _executeTransaction function, there's no need for this loop. Now, the function directly calls _executeTransaction for each target in the proposal.
 
-Removed unused functions: noticed that some functions like __acceptAdmin and __abdicate were not used within the contract, remove them .
+- Removed unused functions: noticed that some functions like __acceptAdmin and __abdicate were not used within the contract, remove them .
 
-Reduced redundant storage reads: optimize some functions to read from storage only when needed, reducing the number of storage reads.
+- Reduce redundant storage reads: optimize some functions to read from storage only when needed, reducing the number of storage reads.
 
 
 Here is an optimized version of GovernorCharlie contract:
@@ -348,23 +348,23 @@ contract GovernorCharlie is IGovernorCharlie {
 2 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/Vault.sol
 
 
-Changed require to if for modifier checks:  change the require statements inside the modifiers to if conditions for better gas optimization. This is because require statements consume more gas when they revert, which can be avoided for modifier checks.
+- Change require to if for modifier checks:  change the require statements inside the modifiers to if conditions for better gas optimization. This is because require statements consume more gas when they revert, which can be avoided for modifier checks.
 
-Consolidated require statements: In functions where multiple require statements were used, consolidate them into a single require statement to reduce gas costs.
+- Consolidaterequire statements: In functions where multiple require statements were used, consolidate them into a single require statement to reduce gas costs.
 
-Simplified modifier logic:  simplifiy the modifier logic by using the require statement directly inside the modifier instead of using an if condition.
+- Simplifiy modifier logic:  simplifiy the modifier logic by using the require statement directly inside the modifier instead of using an if condition.
 
-Removed redundant checks: In some places, redundant checks were present, such as checking if an array length is zero before a loop. remove these redundant checks for gas optimization.
+- Remove redundant checks: In some places, redundant checks were present, such as checking if an array length is zero before a loop. remove these redundant checks for gas optimization.
 
-Removed unnecessary unchecked blocks: In the claimRewards function, the unchecked blocks were not necessary, so  remove them.
+- Remove unnecessary unchecked blocks: In the claimRewards function, the unchecked blocks were not necessary, so  remove them.
 
-Reduced scope of variables: reduce the scope of some variables to only where they are needed to minimize gas costs.
+- Reduced scope of variables: reduce the scope of some variables to only where they are needed to minimize gas costs.
 
-Reordered modifier checks: In the depositERC20 function,  move the check for token registration and amount validation to the beginning of the function to avoid unnecessary token transfers.
+- Reordered modifier checks: In the depositERC20 function,  move the check for token registration and amount validation to the beginning of the function to avoid unnecessary token transfers.
 
-Simplified claimableRewards function: In the claimableRewards function, simpliy the calculation of rewards by combining some statements and avoiding unnecessary loops.
+- Simplifiy claimableRewards function: In the claimableRewards function, simpliy the calculation of rewards by combining some statements and avoiding unnecessary loops.
 
-Combined variable declarations:  combine some variable declarations into single lines to reduce gas costs.
+- Combine variable declarations:  combine some variable declarations into single lines to reduce gas costs.
 
 Here's an optimized version of the vault Contract: 
 
@@ -631,21 +631,21 @@ contract Vault is IVault, Context {
 
 3 . Target :https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/USDA.sol
 
-Remove unnecessary modifiers: The modifiers onlyVaultController and paysInterest were remove from functions where they were not needed. This reduces gas usage by removing unnecessary checks and loop iterations.
+- Remove unnecessary modifiers: The modifiers onlyVaultController and paysInterest were remove from functions where they were not needed. This reduces gas usage by removing unnecessary checks and loop iterations.
 
-SimplifiY modifier usage: The onlyPauser modifier was simplifiy by using a require statement directly in the function. This reduces the gas cost of modifiers.
+- SimplifiY modifier usage: The onlyPauser modifier was simplifiy by using a require statement directly in the function. This reduces the gas cost of modifiers.
 
-Combine function parameters: In the functions withdrawAll and withdrawAllTo,  combine the withdrawal logic to avoid redundant code and reduce gas usage.
+- Combine function parameters: In the functions withdrawAll and withdrawAllTo,  combine the withdrawal logic to avoid redundant code and reduce gas usage.
 
-Consolidate input validations: In functions like deposit and depositTo,  combine input validations into a single require statement, which reduces gas consumption by saving gas on multiple checks.
+- Consolidate input validations: In functions like deposit and depositTo,  combine input validations into a single require statement, which reduces gas consumption by saving gas on multiple checks.
 
-Remove redundant checks:  remove redundant checks in the functions withdraw, withdrawTo, withdrawAll, and withdrawAllTo to reduce gas usage.
+- Remove redundant checks:  remove redundant checks in the functions withdraw, withdrawTo, withdrawAll, and withdrawAllTo to reduce gas usage.
 
-Reduced unnecessary state variables:  remove the variable _susdWithdrawn from functions withdrawAll and withdrawAllTo as it was not needed and only added to storage costs.
+- Reduce unnecessary state variables:  remove the variable _susdWithdrawn from functions withdrawAll and withdrawAllTo as it was not needed and only added to storage costs.
 
-Remove unused functions and modifiers:  remove unused functions and modifiers (removeVaultControllerFromList, reserveRatio, etc.) that were not being used in the contract to reduce the contract's size and gas usage.
+- Remove unused functions and modifiers:  remove unused functions and modifiers (removeVaultControllerFromList, reserveRatio, etc.) that were not being used in the contract to reduce the contract's size and gas usage.
 
-Consolidate function logic: In the functions withdraw, withdrawTo, withdrawAll, and withdrawAllTo,  consolidate the calculation of the withdrawn amount to avoid repetitive calculations and save gas.
+- Consolidate function logic: In the functions withdraw, withdrawTo, withdrawAll, and withdrawAllTo,  consolidate the calculation of the withdrawn amount to avoid repetitive calculations and save gas.
 
 Here is an optimized code of USDA Contract:
 
@@ -826,17 +826,17 @@ contract USDA is Pausable, UFragments, IUSDA, ExponentialNoError, Roles {
 
 4 . Target :https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/utils/UFragments.sol
 
-Use SafeMath Library:  importe the SafeMath library from OpenZeppelin and replaced direct arithmetic operations with safe math functions to prevent potential overflows and underflows.
+- Use SafeMath Library:  importe the SafeMath library from OpenZeppelin and replaced direct arithmetic operations with safe math functions to prevent potential overflows and underflows.
 
-Consolidate State Updates: In the transfer functions (transfer, transferAll, transferFrom, and transferAllFrom),  consolidate state updates to minimize redundant storage writes.
+- Consolidate State Updates: In the transfer functions (transfer, transferAll, transferFrom, and transferAllFrom),  consolidate state updates to minimize redundant storage writes.
 
-Simplifie Division Operations: replace direct division operations with the div function from SafeMath to ensure correct rounding.
+- Simplifiy Division Operations: replace direct division operations with the div function from SafeMath to ensure correct rounding.
 
-Remove Unused Function: The increaseAllowance function was remove as it can be replace by the standard approve function.
+- Remove Unused Function: The increaseAllowance function was remove as it can be replace by the standard approve function.
 
-Reorganize Function Order:  reorganize the functions for better readability and to group related functions together.
+- Reorganize Function Order:  reorganize the functions for better readability and to group related functions together.
 
-Use SafeMath in permit Function:  use add instead of + and sub instead of - in the permit function to ensure safe arithmetic.
+- Use SafeMath in permit Function:  use add instead of + and sub instead of - in the permit function to ensure safe arithmetic.
 
 
 Here's an optimized version of the UFragments contract includes some gas-saving improvements:
@@ -1079,15 +1079,15 @@ contract UFragments is Ownable, IERC20Metadata {
 
  5 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/AMPHClaimer.sol
 
-Avoid unnecessary calculations: In the _claimable function, we can check if _crvTotalRewards is zero or the AMPH balance is zero right at the beginning and return early to save gas if these conditions are met.
+- Avoid unnecessary calculations: In the _claimable function, we can check if _crvTotalRewards is zero or the AMPH balance is zero right at the beginning and return early to save gas if these conditions are met.
 
-Avoid unnecessary state updates: In the claimAmph function, the contract updates the distributedAmph state variable even if _crvAmountToSend and _claimedAmph are both zero. we can move this state update inside the if statement to avoid unnecessary updates.
+- Avoid unnecessary state updates: In the claimAmph function, the contract updates the distributedAmph state variable even if _crvAmountToSend and _claimedAmph are both zero. we can move this state update inside the if statement to avoid unnecessary updates.
 
-Avoid unnecessary loops: In the _calculate function, there's a while loop that calculates the amount of AMPH to mint. This loop can be avoided by directly calculating the amount of AMPH to mint using mathematical formulas, instead of iteratively calculating each cliff's share.
+- Avoid unnecessary loops: In the _calculate function, there's a while loop that calculates the amount of AMPH to mint. This loop can be avoided by directly calculating the amount of AMPH to mint using mathematical formulas, instead of iteratively calculating each cliff's share.
 
-Remove unused variables: The _cvxAmountToSend variable is assigned in the _claimable function but not used further. You can remove it to save gas.
+- Remove unused variables: The _cvxAmountToSend variable is assigned in the _claimable function but not used further. You can remove it to save gas.
 
-Inline small internal functions: Some small internal functions like _getCliff and _totalToFraction can be inlined to reduce the function call overhead.
+- Inline small internal functions: Some small internal functions like _getCliff and _totalToFraction can be inlined to reduce the function call overhead.
 
 
 Here's an optimized version of the contract:
@@ -1181,19 +1181,19 @@ contract AMPHClaimer is IAMPHClaimer, Ownable {
 
 6 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/WUSDA.sol
 
-Use Fixed-Point Arithmetic: The current implementation uses regular division and multiplication to calculate wUSDA amounts. Using fixed-point arithmetic can reduce the number of operations needed and may lead to gas savings.
+- Use Fixed-Point Arithmetic: The current implementation uses regular division and multiplication to calculate wUSDA amounts. Using fixed-point arithmetic can reduce the number of operations needed and may lead to gas savings.
 
-Use SafeERC20 only where necessary: The SafeERC20 library is being used for all ERC20 transfers. While this is a good security practice, it adds some additional overhead. If the contract is already well-audited and deemed secure, you may consider using regular ERC20 transfer functions for internal transfers to save gas.
+- Use SafeERC20 only where necessary: The SafeERC20 library is being used for all ERC20 transfers. While this is a good security practice, it adds some additional overhead. If the contract is already well-audited and deemed secure, you may consider using regular ERC20 transfer functions for internal transfers to save gas.
 
-Combine Mint and Deposit Functions: The mint and deposit functions perform similar operations. By combining them into a single function and using default parameters for _to, we can reduce the number of duplicated operations.
+- Combine Mint and Deposit Functions: The mint and deposit functions perform similar operations. By combining them into a single function and using default parameters for _to, we can reduce the number of duplicated operations.
 
-Combine Burn and Withdraw Functions: Similar to the previous point, the burn and withdraw functions can be combined to reduce code duplication.
+- Combine Burn and Withdraw Functions: Similar to the previous point, the burn and withdraw functions can be combined to reduce code duplication.
 
-Avoid Using ERC20Permit: The contract inherits from ERC20Permit, which enables permit functions for the wUSDA token. If permit functionality is not a strict requirement, removing this inheritance can reduce the contract size and gas usage.
+- Avoid Using ERC20Permit: The contract inherits from ERC20Permit, which enables permit functions for the wUSDA token. If permit functionality is not a strict requirement, removing this inheritance can reduce the contract size and gas usage.
 
-Use view Modifiers: In the _usdaSupply() function, we can use the view modifier instead of the pure modifier, as it doesn't modify the contract state.
+- Use view Modifiers: In the _usdaSupply() function, we can use the view modifier instead of the pure modifier, as it doesn't modify the contract state.
 
-Avoid Redundant Variables: In some functions, there are redundant variables, such as _usdaAmount and _wusdaAmount. These can be avoided to save gas.
+- Avoid Redundant Variables: In some functions, there are redundant variables, such as _usdaAmount and _wusdaAmount. These can be avoided to save gas.
 
 
 Here  is an optimized version of the WUSDA contract with some of the suggested gas-saving improvements:
@@ -1251,15 +1251,15 @@ contract WUSDA is IWUSDA, ERC20 {
 
 7 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/periphery/oracles/AnchoredViewRelay.sol
 
-Reduce External Calls: Each external call to another contract consumes additional gas. In the peekValue() function, there are two external calls to mainRelay.peekValue() and anchorRelay.peekValue(). You could try to minimize these calls by caching the values if possible, so that you can reuse them within the function.
+- Reduce External Calls: Each external call to another contract consumes additional gas. In the peekValue() function, there are two external calls to mainRelay.peekValue() and anchorRelay.peekValue(). You could try to minimize these calls by caching the values if possible, so that you can reuse them within the function.
 
-Use View Functions: If a function doesn't modify the state of the contract, mark it as a view function instead of pure. This helps the EVM understand that the function won't modify any state, allowing it to optimize gas consumption.
+- Use View Functions: If a function doesn't modify the state of the contract, mark it as a view function instead of pure. This helps the EVM understand that the function won't modify any state, allowing it to optimize gas consumption.
 
-Reuse Variables: In the _getLastSecond() function, the variable _anchorPrice is being calculated twice, once in the if block and once in the else block. You can calculate it once and store it in a variable to avoid redundant calculations.
+- Reuse Variables: In the _getLastSecond() function, the variable _anchorPrice is being calculated twice, once in the if block and once in the else block. You can calculate it once and store it in a variable to avoid redundant calculations.
 
-Avoid Unnecessary Operations: Review the operations performed within the _getLastSecond() function and try to eliminate any unnecessary or redundant operations. Simplifying mathematical expressions can sometimes lead to gas savings.
+- Avoid Unnecessary Operations: Review the operations performed within the _getLastSecond() function and try to eliminate any unnecessary or redundant operations. Simplifying mathematical expressions can sometimes lead to gas savings.
 
-Gas-Efficient Error Handling: In the _getLastSecond() function, when require statements are used, they revert the entire transaction with an error message if the condition is not met. Be cautious with error messages, as they can consume more gas. Consider using custom error codes instead of error messages to save gas.
+- Gas-Efficient Error Handling: In the _getLastSecond() function, when require statements are used, they revert the entire transaction with an error message if the condition is not met. Be cautious with error messages, as they can consume more gas. Consider using custom error codes instead of error messages to save gas.
 
 
 Here is an optimized version of the AnchoredViewRelay contract with some gas-saving improvements:
@@ -1320,13 +1320,13 @@ contract AnchoredViewRelay is OracleRelay {
 
 8 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/utils/ThreeLines0_100.sol
   
-How we reduce gas in this contract,
 
-Simplified interpolation: The _linearInterpolation function has been simplified by directly passing the start and end values instead of the rise and run values, which reduces the number of calculations.
 
-Combined range checks: The two if conditions for checking _xValue have been combined into a single if condition.
+- Simplifiy interpolation: The _linearInterpolation function has to be simplifiy by directly passing the start and end values instead of the rise and run values, which reduces the number of calculations.
 
-Removed solhint-disable-next-line: The line // solhint-disable-next-line contract-name-camelcase was remove as it was not needed.
+- Combine range checks: The two if conditions for checking _xValue have been combined into a single if condition.
+
+- Remove solhint-disable-next-line: The line // solhint-disable-next-line contract-name-camelcase was remove as it is not needed.
 
 
 
@@ -1390,7 +1390,7 @@ contract ThreeLines0_100 is ICurveSlave {
 
 9 . Target : https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/periphery/oracles/UniswapV3OracleRelay.sol
 
-marke the functions _get() and peekValue() as pure instead of view because they don't perform any state changes. Additionally, define constant values BASE_DECIMALS_FACTOR and BASE_TOKEN_FACTOR to avoid redundant computations during contract execution
+- marke the functions _get() and peekValue() as pure instead of view because they don't perform any state changes. Additionally, define constant values BASE_DECIMALS_FACTOR and BASE_TOKEN_FACTOR to avoid redundant computations during contract execution
 
 Here's an Optimized  version of the contract:
 // SPDX-License-Identifier: MIT
