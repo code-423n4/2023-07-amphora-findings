@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ljmanini",
+  "risk": "2",
+  "title": "Reorg attack on user's Vault deployment and deposit may lead to theft of funds",
+  "issueId": 233,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/233"
+}
