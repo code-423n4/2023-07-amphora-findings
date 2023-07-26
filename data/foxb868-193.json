@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "foxb868",
+  "risk": "3",
+  "title": " Attacker can repeatedly enter the _borrow function, withdraw funds, and manipulate the contract's balance, potentially draining it of its available funds.",
+  "issueId": 193,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/193"
+}
