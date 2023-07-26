@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "Lack of the validation to check whether or not the caller address (`msg.sender`) of the VaultDeployer#`deployVault()` would be the contract address of the VaultController, which lead to un-expected behavior",
+  "issueId": 175,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/175"
+}
