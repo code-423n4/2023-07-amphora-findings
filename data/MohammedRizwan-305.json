@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "MohammedRizwan",
+  "risk": "3",
+  "title": "Wrong consideration of block period in GovernorCharlie.sol",
+  "issueId": 305,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/305"
+}
