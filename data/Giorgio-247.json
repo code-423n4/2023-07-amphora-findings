@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Giorgio",
+  "risk": "3",
+  "title": "Vulnerability in the WUSDA Smart Contract that Allows for Flash Mint Manipulation",
+  "issueId": 247,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/247"
+}
