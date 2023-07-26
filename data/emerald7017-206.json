@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "emerald7017",
+  "risk": "3",
+  "title": "An attacker could repeatedly withdraw funds from the USDA contract's reserve or mint an excessive amount of tokens.",
+  "issueId": 206,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/206"
+}
