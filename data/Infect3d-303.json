@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "Infect3d",
+  "risk": "2",
+  "title": "Tokens can be stuck in Vault as there is no “getStuckFunds” function",
+  "issueId": 303,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/303"
+}
