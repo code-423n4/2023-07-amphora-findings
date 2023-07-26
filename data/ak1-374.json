@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ak1",
+  "risk": "3",
+  "title": "GovernorCharlie.sol#L159 : Blacklisted user can propose proposal and this can be executed due to the mistake in condition check in `propose`",
+  "issueId": 374,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/374"
+}
