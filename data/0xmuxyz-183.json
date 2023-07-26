@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "0xmuxyz",
+  "risk": "2",
+  "title": "When a user call the USDA#`withdraw()`, the user could assign the amount, which is more than the `reserveAmount`, into the `_susdAmount`, which lead to that the transaction will be reverted",
+  "issueId": 183,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/183"
+}
