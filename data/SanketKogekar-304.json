@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "SanketKogekar",
+  "risk": "3",
+  "title": "Reentrancy issue with the 'withdraw' method of USDC. All tokens could be drained.",
+  "issueId": 304,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/304"
+}
