@@ -1,12 +1,14 @@
 # [L-01] USDA `withdrawAll` doesn’t take pending interest into account leaving user's interest unclaimed
+
 USDA `withdrawAll` and `withdrawAllTo` doesn't really withdraw all of user balance. Since it calculate withdrawal balance before doing interest accrual, accrued interest won't be reflected in the calculated balance, leaving interest unclaimed.
 ```
   function withdrawAll() external override returns (uint256 _susdWithdrawn) {
     uint256 _balance = this.balanceOf(_msgSender());
-    _susdWithdrawn = _balance > reserveAmount ? reserveAmount : _balance; // calculate withdrawal balance
-    _withdraw(_susdWithdrawn, _msgSender()); // accrue interest after balance is calculated
+    _susdWithdrawn = _balance > reserveAmount ? reserveAmount : _balance; // @audit calculate withdrawal balance
+    _withdraw(_susdWithdrawn, _msgSender()); // @audit accrue interest after balance is calculated
   }
 
+  // @audit interest is accrued here after `_susdAmount` calculation
   function _withdraw(uint256 _susdAmount, address _target) internal paysInterest whenNotPaused {
     // ...
   }
@@ -97,3 +99,43 @@ contract WithdrawInterestPoC is CommonE2EBase {
     _withdraw(_susdWithdrawn, _msgSender());
   }
 ```
+
+# [L-02] USDA internal function `_mint` can bypass check performed by `validRecipient` used by transfer function
+
+Functions that utilize `_mint` can send USDA to zero address or USDA contract itself.
+Affected functions are
+- USDA `depositTo` via `_target` parameter
+- VaultController internal function `_borrow` via `_target` parameter
+
+https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/USDA.sol#L167-L178
+https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/USDA.sol#L93-L98
+https://github.com/code-423n4/2023-07-amphora/blob/main/core/solidity/contracts/core/VaultController.sol#L549-L552
+
+## Proof of Concept
+Extending `CommonE2EBase` contract. `testSendUSDAToAddressZero` test function showed that user can send USDA to address zero via `depositTo`
+```
+  function testSendUSDAToAddressZero() public {
+    uint256 zeroAddressBalanceBefore = usdaToken.balanceOf(address(0));
+
+    _dealSUSD(dave, 2 ether);
+
+    vm.startPrank(dave);
+    susd.approve(address(usdaToken), 1 ether);
+    usdaToken.depositTo(1 ether, address(0));
+    vm.stopPrank();
+
+    assertEq(usdaToken.balanceOf(address(0)), zeroAddressBalanceBefore + 1 ether);
+
+    // Sending via transfer is not possible
+    vm.prank(dave);
+    vm.expectRevert(abi.encodeWithSignature('UFragments_InvalidRecipient()'));
+    usdaToken.transfer(address(0), 1 ether);
+  }
+```
+## Recommended mitigation steps
+Apply `validRecipient` modifier to `_mint` functions
+```
+function _mint(address _target, uint256 _amount) internal validRecipient(_target) {
+```
+
+# [L-03] 
