@@ -138,4 +138,45 @@ Apply `validRecipient` modifier to `_mint` functions
 function _mint(address _target, uint256 _amount) internal validRecipient(_target) {
 ```
 
-# [L-03] 
+# [L-03] `AMPHClaimer` CRV and CVX reward fee is not validated when being set
+
+Reward fee parameters set in constructor and setter functions `changeCvxRewardFee` and `changeCrvRewardFee` are not validated. If it is set to value greater than `_BASE` constant, contract would fail to function due to trying to take more fees than available balance.
+```
+  function _totalToFraction(uint256 _total, uint256 _fraction) internal pure returns (uint256 _amount) {
+    if (_total == 0) return 0;
+    _amount = (_total * _fraction) / _BASE; // @audit if `_fraction > _BASE` it would cause transfer to fail
+  }
+```
+## Recommended mitigation steps
+Validate that fee input always less than `_BASE` constant in constructor and setters
+```
+  constructor(
+    address _vaultController,
+    IERC20 _amph,
+    IERC20 _cvx,
+    IERC20 _crv,
+    uint256 _cvxRewardFee,
+    uint256 _crvRewardFee
+  ) {
+    ...
+    if (_cvxRewardFee > _BASE || _crvRewardFee > _BASE) revert AMPHClaimer_InvalidFee();
+    cvxRewardFee = _cvxRewardFee;
+    crvRewardFee = _crvRewardFee;
+  }
+
+  function changeCvxRewardFee(uint256 _newFee) external override onlyOwner {
+    if (_newFee > _BASE) revert AMPHClaimer_InvalidFee();
+    cvxRewardFee = _newFee;
+
+    emit ChangedCvxRewardFee(_newFee);
+  }
+
+  function changeCrvRewardFee(uint256 _newFee) external override onlyOwner {
+    if (_newFee > _BASE) revert AMPHClaimer_InvalidFee();
+    crvRewardFee = _newFee;
+
+    emit ChangedCrvRewardFee(_newFee);
+  }
+```
+
+# [L-04] 
