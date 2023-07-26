@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "mrpathfindr",
+  "risk": "2",
+  "title": "Unit inconsistencies in _payInterest can lead to Rounding Errors ",
+  "issueId": 225,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/225"
+}
