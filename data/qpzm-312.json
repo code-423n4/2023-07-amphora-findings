@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "qpzm",
+  "risk": "2",
+  "title": "`VaultController.liquidatVault` cannot make the vault solvent",
+  "issueId": 312,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/312"
+}
