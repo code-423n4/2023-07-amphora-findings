@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "ak1",
+  "risk": "2",
+  "title": "WUSDA.sol: `MAX_wUSDA_SUPPLY ` is not enforced during `wUSDA` mint.",
+  "issueId": 362,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/362"
+}
