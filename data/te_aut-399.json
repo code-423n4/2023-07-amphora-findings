@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "te_aut",
+  "risk": "2",
+  "title": "the '_calculate' function in AMPHClaimer.sol may have rounding error vulnerability due to the use of floating-point arithmetic with 1e6 precision",
+  "issueId": 399,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/399"
+}
