@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "foxb868",
+  "risk": "3",
+  "title": "If successfully exploited, the attacker could drain additional funds from the vault.",
+  "issueId": 195,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/195"
+}
