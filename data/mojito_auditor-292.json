@@ -1,0 +1,8 @@
+{
+  "contest": 266,
+  "handle": "mojito_auditor",
+  "risk": "2",
+  "title": "`Proposal.emergency` might be wrong when the proposer is whitelisted",
+  "issueId": 292,
+  "issueUrl": "https://github.com/code-423n4/2023-07-amphora-findings/issues/292"
+}
